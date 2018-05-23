@@ -1,0 +1,14 @@
+{
+  "GET": {
+    "/": { "path": "/", "callable": "posts.index", "name": "home" },
+    "/home": { "path": "/home", "callable": "posts.index", "name": "home" },
+    "/posts": { "path": "/posts", "callable": "posts.index", "name": "home" },
+    "/:slugCategory/:slug/:id": { "path": "/:slugCategory/:slug/:id", "callable": "posts.show", "name": "post" },
+    "/categories/": { "path": "/categories/", "callable": "categories.index", "name": "categories" },
+    "/:slug/": { "path": "/:slug/", "callable": "categories.category", "name": "category" }
+  },
+
+  "POST": {
+    "/:slugCategory/:slug/:id": { "path": "/:slugCategory/:slug/:id", "callable": "posts.show", "name": "comment" }
+  }
+}

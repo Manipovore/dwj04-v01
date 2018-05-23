@@ -1,0 +1,13 @@
+
+# On suit les liens symboliques
+Options +FollowSymlinks
+# Activation du mod rewrite d'Apache
+RewriteEngine On
+
+# si le fichier n'existe pas
+RewriteCond %{REQUEST_FILENAME} !-f
+
+#on redirige tout vers index.php?url=????
+RewriteRule ^(.*)$ index.php?url=$1 [QSA,L]
+
+
