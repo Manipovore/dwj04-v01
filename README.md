@@ -14,7 +14,7 @@ Le système de routing se trouve dans le dossier app/Router, il contient :
 * routes.json
     * Listing des routes hiérarchisées par méthodes (GET, POST, ...).
 
-![Router](./public/images/Router.png)
+![Router](../public/images/Router.png)
 
 -------------
 Version dev 1.0
