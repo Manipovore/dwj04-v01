@@ -14,14 +14,7 @@ Le système de routing se trouve dans le dossier app/Router, il contient :
 * routes.json
     * Listing des routes hiérarchisées par méthodes (GET, POST, ...).
 
-```mermaid
-graph LR
-A((Request / URL)) --> B
-Z[Routes.json] --> B
-B[Router.php] --> C[Route.php]
-B[Router.php] -- No routes matches / Request Not found --> D[RouterException.php]
-C -- Match --> E{Controller}
-```
+![Router](public/images/Router.png)
 
 -------------
 Version dev 1.0
