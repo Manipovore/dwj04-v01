@@ -7,14 +7,40 @@ namespace App\Router;
  */
 class Router {
 
+	/**
+	 * @var String
+	 * Url
+	 */
 	private $url;
+	/**
+	 * @var array[String Request_Method][Object Route]
+	 * Tableau qui liste les methodes (GET, POST ...) puis les Routes definis par l'Objet Route.
+	 * Exemple: array (size=2)
+		'GET' =>
+			array (size=6)
+				0 =>
+					object(App\Router\Route)[12]
+						private 'path' => string 'posts' (length=0)
+						private 'callable' => string 'posts.index' (length=11)
+						private 'matches' =>
+							array (size=0)
+								...
+				1 => ..
+	 * 	...
+	 */
 	private $routes = [];
-	private $namedRoutes = [];
 
+	/**
+	 * Router constructor.
+	 * @param $url String
+	 */
 	public function __construct($url){
 		$this->url = $url;
 	}
 
+	/**
+	 * @param $file
+	 */
 	public function init($file){
 		foreach( $file as $mth => $rtes){
 			foreach($rtes as $rte){
@@ -38,12 +64,5 @@ class Router {
 			}
 		}
 		 RouterException::message('no routes matches');
-	}
-
-	public function url($name, $params = []){
-		if(!isset($this->namedRoutes[$name])){
-			RouterException::message('No route matches this name');
-		}
-		return $this->namedRoutes[$name]->getUrl($params);
 	}
 }
