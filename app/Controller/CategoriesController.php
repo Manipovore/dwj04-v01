@@ -2,14 +2,16 @@
 
 namespace App\Controller;
 
-class CategoriesController {
+class CategoriesController extends Controller {
 
     public function index(){
-        echo 'Controller: Index Category';
+        $content =  'Controller: Index Category';
+        $this->render('categories.index', compact('content'));
     }
 
     public function category($slug){
-        echo 'Controller: Method category and Slug is ' . $slug;
+        $content =  'Controller: Method category and Slug is ' . $slug;
+        $this->render('categories.category', compact('content'));
     }
 
 }

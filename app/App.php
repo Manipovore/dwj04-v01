@@ -26,6 +26,7 @@ class App{
         require ROOT . 'app/Autoloader.php';
         Autoloader::register();
         self::initRoutes();
+        self::getUrl();
     }
 
     /**
@@ -40,5 +41,10 @@ class App{
         }
         $router = new Router\Router($_GET['url']);
         $router->init(self::$_routes);
+    }
+
+    public static function getUrl(){
+        $url = "http://" . $_SERVER['HTTP_HOST'] . rtrim(dirname($_SERVER['PHP_SELF']), '/\\');
+        return $url;
     }
 }

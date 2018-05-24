@@ -1,13 +1,16 @@
 <?php
+
 namespace App\Controller;
 
-class PostsController {
+class PostsController extends Controller{
 
     public function index() {
-        echo 'Controller: Index Posts';
+        $content =  'Controller: Index Posts';
+        $this->render('posts.index', compact('content'));
     }
 
     public function show($slugCategory, $slug, $id) {
-        echo 'Controller: Show Posts and category is ' . $slugCategory . ' , slug ' . $slug . ' and id ' . $id;
+        $content = 'Controller: Show Posts and category is ' . $slugCategory . ' , slug ' . $slug . ' and id ' . $id;
+        $this->render('posts.show', compact('content'));
     }
 }
