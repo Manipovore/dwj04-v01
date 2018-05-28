@@ -2,7 +2,7 @@
 
 namespace App\Controller;
 
-class CategoriesController extends Controller {
+class CategoriesController extends AppController {
 
     public function index(){
         $content =  'Controller: Index Category';

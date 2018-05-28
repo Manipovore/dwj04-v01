@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Controller;
+namespace Core\Controller;
 
 
 class Controller {
 
-    protected $viewPath = ROOT . "app/Views/";
-    protected $template = "default";
+    protected $viewPath;
+    protected $template;
 
     /**
      * @param $view fichier de la vue

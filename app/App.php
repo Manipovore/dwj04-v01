@@ -25,8 +25,10 @@ class App{
     public static function load(){
         require ROOT . 'app/Autoloader.php';
         Autoloader::register();
+        require ROOT . 'core/Autoloader.php';
+        \Core\Autoloader::register();
         self::initRoutes();
-        self::getUrl();
+        self::getUrl(); //For test, delete this
     }
 
     /**

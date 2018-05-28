@@ -2,7 +2,7 @@
 
 namespace App\Controller;
 
-class PostsController extends Controller{
+class PostsController extends AppController{
 
     public function index() {
         $content =  'Controller: Index Posts';
