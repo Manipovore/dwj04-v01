@@ -4,14 +4,23 @@ namespace App\Controller;
 
 class CategoriesController extends AppController {
 
+    public function __construct() {
+        parent::__construct();
+        $this->loadModel('Post');
+        $this->loadModel('Category');
+    }
+
     public function index(){
-        $content =  'Controller: Index Category';
-        $this->render('categories.index', compact('content'));
+        var_dump("ok");
+        $categories = $this->Category->all("categories");
+        $this->render('categories.index', compact('categories'));
     }
 
     public function category($slug){
-        $content =  'Controller: Method category and Slug is ' . $slug;
-        $this->render('categories.category', compact('content'));
+        $categorie = $this->Category->findWithSlug($slug);
+        $posts = $this->Post->lastByCategory($categorie->id);
+        $categories = $this->Category->all("categories");
+        $this->render('categories.category', compact('posts', 'categories', 'categorie'));
     }
 
 }

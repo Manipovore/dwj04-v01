@@ -1,11 +1,18 @@
+<div class="row">
+    <div class="col-sm-8">
+        <h2>Toutes les Chapitres</h2>
+        <div id="list_post" class="row">
+            <?php foreach ($categories as $category) : ?>
 
-<p>Toutes les catégories: </p>
-<?= $content; ?>
+                <div class="col-sm-6">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title"><a href="<?= $category->category_slug ?>"><?= $category->category_title; ?></a></h5>
+                        </div>
+                    </div>
+                </div>
 
-<hr>
-
-<a href="<?= './categories' ?>" class="list-group-item list-group-item-action list-group-item-dark">Les Chapitres: </a>
-<a href="<?= './chapitre1' ?>" class="list-group-item list-group-item-action"> chapitre 1</a>
-<a href="<?= './chapitre2' ?>" class="list-group-item list-group-item-action"> chapitre 2</a>
-<a href="<?= './chapitre3' ?>" class="list-group-item list-group-item-action"> chapitre 3</a>
-<a href="<?= './chapitre4' ?>" class="list-group-item list-group-item-action"> chapitre 4</a>
+            <?php endforeach; ?>
+        </div>
+    </div>
+</div>

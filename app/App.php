@@ -2,10 +2,13 @@
 
 namespace App;
 
+use Core\Database\MysqlDatabase;
+
 class App{
 
     private static $_instance;
     private static $_routes;
+    private $db_instance;
 
     /**
      * Design pattern Singleton
@@ -48,5 +51,26 @@ class App{
     public static function getUrl(){
         $url = "http://" . $_SERVER['HTTP_HOST'] . rtrim(dirname($_SERVER['PHP_SELF']), '/\\');
         return $url;
+    }
+
+    /**
+     * Design pattern FACTORY
+     * Connexion database
+     * new MysqlDatabase($db_name, $db_user, $db_pass, $db_host);
+     */
+    public function getDb(){
+        if( is_null($this->db_instance)){
+            $this->db_instance = new MysqlDatabase("blog", "root", "", "localhost");
+        }
+        return $this->db_instance;
+    }
+
+    /**
+     * Design pattern FACTORY
+     * Chargement des classes Model
+     */
+    public function getModel($name){
+        $class_name = 'App\\Model\\'.ucfirst($name). 'Model';
+        return new $class_name($this->getDb());
     }
 }

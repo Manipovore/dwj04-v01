@@ -1,8 +1,9 @@
 <div class="row">
     <div class="col-sm-8">
         <div id="list_post" class="row">
-            <p>Article:  </p>
-            <?= $content; ?>
+            <h2><?= $post->title; ?></h2>
+            <p> <em><?= $post->category_title; ?> / page: <?= $post->page; ?></em> </p>
+            <p> <?= $post->content; ?></p>
         </div>
     </div>
 

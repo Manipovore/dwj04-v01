@@ -2,7 +2,19 @@
     <div class="col-sm-8">
         <div id="list_post" class="row">
            <p>Les articles: </p>
-            <?= $content; ?>
+            <?php foreach ($posts as $post) : ?>
+
+                <div class="col-sm-6">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title"><a href="<?= $post->category_slug .'/'. $post->slug .'/'. $post->id ?>"><?= $post->title; ?></a></h5>
+                            <p> <em><?= $post->category_title; ?> / page: <?= $post->page; ?></em> </p>
+                            <p class="card-text"><?= substr($post->content,0 , 250); ?></p>
+                        </div>
+                    </div>
+                </div>
+
+            <?php endforeach; ?>
         </div>
     </div>
 

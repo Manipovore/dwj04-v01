@@ -1,16 +1,22 @@
 <?php
 
 namespace App\Controller;
+use App\Model\ModelPosts;
 
 class PostsController extends AppController{
 
+    public function __construct() {
+        parent::__construct();
+        $this->loadModel('Post');
+    }
+
     public function index() {
-        $content =  'Controller: Index Posts';
-        $this->render('posts.index', compact('content'));
+        $posts = $this->Post->last();
+        $this->render('posts.index', compact('posts'));
     }
 
     public function show($slugCategory, $slug, $id) {
-        $content = 'Controller: Show Posts and category is ' . $slugCategory . ' , slug ' . $slug . ' and id ' . $id;
-        $this->render('posts.show', compact('content'));
+        $post = $this->Post->findWithCategory($slug);
+        $this->render('posts.show', compact('post'));
     }
 }
