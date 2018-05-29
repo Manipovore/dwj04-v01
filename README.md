@@ -18,7 +18,7 @@ Le système de routing se trouve dans le dossier app/Router, il contient :
 
 ## MVC
 
-###Model
+### Model
 
 La connexion à la base de donnée est initiée dans la classe MysqlDatabase, enfant de Database, dans le core/Database.
 La méthode getModel($bdd) sert à charger un model bien spécifique et prend en paramètre la connexion à la bdd. Située dans app/App.php, elle est appelée par le controlleur AppController et par les controlleurs enfants. Chaque Controller peut faire appel à un model particulier suivant le besoin (posts, categories, ...).
