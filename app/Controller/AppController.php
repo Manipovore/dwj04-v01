@@ -16,6 +16,12 @@ class AppController extends Controller {
         $this->viewPath = ROOT . 'app/Views/';
     }
 
+    protected function noResult($result){
+        if($result == false){
+            $this->notFound();
+        }
+    }
+
     protected function loadModel($model_name){
         $this->$model_name = \App\App::getInstance()->getModel($model_name);
     }

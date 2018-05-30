@@ -12,11 +12,13 @@ class PostsController extends AppController{
 
     public function index() {
         $posts = $this->Post->last();
+        $this->noResult($posts);
         $this->render('posts.index', compact('posts'));
     }
 
     public function show($slugCategory, $slug, $id) {
         $post = $this->Post->findWithCategory($slug);
+        $this->noResult($post);
         $this->render('posts.show', compact('post'));
     }
 }
