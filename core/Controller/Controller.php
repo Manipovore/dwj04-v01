@@ -21,6 +21,12 @@ class Controller {
 
     }
 
+    protected function forbidden(){
+		header('HTTP/1.0 403 Forbidden');
+		$this->render('Errors.forbidden');
+		exit();
+	}
+
     protected function notFound(){
         header('HTTP/1.0 404 Not Found');
         $this->render('Errors.notFound');

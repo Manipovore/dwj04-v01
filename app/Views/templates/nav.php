@@ -1,14 +1,31 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-dark">
     <div id="nav-second" class="container">
         <h1 id="site-title"><a class="navbar-brand" href="<?= App\app::getUrl(); ?>/home">Billet simple pour l'Alaska</a></h1>
-            <ul id="nav-connect" class="navbar-nav mr-auto mt-2 mt-lg-0">
+        <?php if( isset($_SESSION['auth']) ) :?>
+        <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+            <?php if( $_SESSION['auth']->role === "admin" || $_SESSION['auth']->role === "author" ) :?>
                 <li class="nav-item">
-                    <a class="navbar-brand" href="<?= App\app::getUrl(); ?>/register"> <i class="fas fa-user-plus"></i> S'inscrire</a>
+                    <a class="navbar-brand" href="<?= App\app::getUrl(); ?>/admin"> <i class="fas fa-cog fa-spin"></i> Administration</a>
                 </li>
+            <?php else :?>
                 <li class="nav-item">
-                    <a class="navbar-brand" href="<?= App\app::getUrl(); ?>/login"> <i class="fas fa-sign-in-alt"></i> Se connecter</a>
+                    <a class="navbar-brand" href="<?= App\app::getUrl(); ?>/account"> <i class="fas fa-user-circle"></i> Compte</a>
                 </li>
-            </ul>
+            <?php endif; ?>
+            <li class="nav-item">
+                <a class="navbar-brand" href="<?= App\app::getUrl(); ?>/logout"> <i class="fas fa-sign-out-alt"></i> Se déconnecter</a>
+            </li>
+        </ul>
+    <?php else :?>
+        <ul id="nav-connect" class="navbar-nav mr-auto mt-2 mt-lg-0">
+            <li class="nav-item">
+                <a class="navbar-brand" href="<?= App\app::getUrl(); ?>/register"> <i class="fas fa-user-plus"></i> S'inscrire</a>
+            </li>
+            <li class="nav-item">
+                <a class="navbar-brand" href="<?= App\app::getUrl(); ?>/login"> <i class="fas fa-sign-in-alt"></i> Se connecter</a>
+            </li>
+        </ul>
+    <?php endif; ?>
     </div>
 </nav>
 <nav id="nav-primary" class="navbar navbar-expand-lg navbar-light bg-dark">

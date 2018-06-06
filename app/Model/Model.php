@@ -20,14 +20,14 @@ class Model
         }
     }
 
-    public function all($table)
+    public function all()
     {
-        return $this->query('SELECT * FROM ' . $table);
+        return $this->query('SELECT * FROM ' . $this->modelName);
     }
 
-    public function find($id, $table)
+    public function find($id)
     {
-        return $this->query("SELECT * FROM {$table} WHERE id = ?", [$id], true);
+        return $this->query("SELECT * FROM {$this->modelName} WHERE id = ?", [$id], true);
     }
 
     public function query($statement, $attributes = null, $one = false)

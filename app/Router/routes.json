@@ -1,5 +1,8 @@
 {
   "GET": {
+    "/login": { "path": "/login", "callable": "users.login", "name": "login" },
+    "/logout": { "path": "/logout", "callable": "users.logout", "name": "logout" },
+    "/admin": { "path": "/admin", "callable": "admin.app.index", "name": "admin" },
     "/": { "path": "/", "callable": "posts.index", "name": "home" },
     "/home": { "path": "/home", "callable": "posts.index", "name": "home" },
     "/posts": { "path": "/posts", "callable": "posts.index", "name": "home" },
@@ -9,6 +12,7 @@
   },
 
   "POST": {
+    "/login": { "path": "/login", "callable": "users.login", "name": "login" },
     "/:slugCategory/:slug/:id": { "path": "/:slugCategory/:slug/:id", "callable": "posts.show", "name": "comment" }
   }
 }
