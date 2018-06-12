@@ -1,0 +1,7 @@
+{
+    "name": "manipovore/dwj04",
+    "description": "blog php mysql",
+    "require": {
+        "ezyang/htmlpurifier": "^4.10"
+    }
+}
