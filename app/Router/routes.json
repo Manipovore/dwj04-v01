@@ -2,7 +2,24 @@
   "GET": {
     "/login": { "path": "/login", "callable": "users.login", "name": "login" },
     "/logout": { "path": "/logout", "callable": "users.logout", "name": "logout" },
+    "/register": { "path": "/register", "callable": "users.register", "name": "register" },
+    "/account": { "path": "/account", "callable": "users.account", "name": "account" },
+    "/confirm": { "path": "/confirm/:id/:token", "callable": "users.confirm", "name": "confirm" },
+
     "/admin": { "path": "/admin", "callable": "admin.app.index", "name": "admin" },
+    "/admin/categories": { "path": "/admin/categories", "callable": "admin.categories.index", "name": "admin" },
+    "/admin/categories/add": { "path": "/admin/categories/add", "callable": "admin.categories.add", "name": "admin" },
+    "/admin/categories/edit/:id": { "path": "/admin/categories/edit/:id", "callable": "admin.categories.edit", "name": "admin" },
+
+    "/admin/posts": { "path": "/admin/posts", "callable": "admin.posts.index", "name": "admin" },
+    "/admin/posts/add": { "path": "/admin/posts/add", "callable": "admin.posts.add", "name": "admin" },
+    "/admin/posts/edit/:id": { "path": "/admin/posts/edit/:id", "callable": "admin.posts.edit", "name": "admin" },
+
+    "/admin/users": { "path": "/admin/users", "callable": "admin.users.index", "name": "admin" },
+    "/admin/users/add": { "path": "/admin/users/add", "callable": "admin.users.add", "name": "admin" },
+    "/admin/users/edit/:id": { "path": "/admin/users/edit/:id", "callable": "admin.users.edit", "name": "admin" },
+
+
     "/": { "path": "/", "callable": "posts.index", "name": "home" },
     "/home": { "path": "/home", "callable": "posts.index", "name": "home" },
     "/posts": { "path": "/posts", "callable": "posts.index", "name": "home" },
@@ -13,6 +30,20 @@
 
   "POST": {
     "/login": { "path": "/login", "callable": "users.login", "name": "login" },
+    "/register": { "path": "/register", "callable": "users.register", "name": "register" },
+
+    "/admin/categories/add": { "path": "/admin/categories/add", "callable": "admin.categories.add", "name": "admin" },
+    "/admin/categories/edit/:id": { "path": "/admin/categories/edit/:id", "callable": "admin.categories.edit", "name": "admin" },
+    "/admin/categories/delete/:id": { "path": "/admin/categories/delete/:id", "callable": "admin.categories.delete", "name": "admin" },
+
+    "/admin/posts/add": { "path": "/admin/posts/add", "callable": "admin.posts.add", "name": "admin" },
+    "/admin/posts/edit/:id": { "path": "/admin/posts/edit/:id", "callable": "admin.posts.edit", "name": "admin" },
+    "/admin/posts/delete/:id": { "path": "/admin/posts/delete/:id", "callable": "admin.posts.delete", "name": "admin" },
+
+    "/admin/users/add": { "path": "/admin/users/add", "callable": "admin.users.add", "name": "admin" },
+    "/admin/users/edit/:id": { "path": "/admin/users/edit/:id", "callable": "admin.users.edit", "name": "admin" },
+    "/admin/users/delete/:id": { "path": "/admin/users/delete/:id", "callable": "admin.users.delete", "name": "admin" },
+
     "/:slugCategory/:slug/:id": { "path": "/:slugCategory/:slug/:id", "callable": "posts.show", "name": "comment" }
   }
 }

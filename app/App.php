@@ -3,12 +3,14 @@
 namespace App;
 
 use Core\Database\MysqlDatabase;
+use Core\Session\Session;
 
 class App{
 
     private static $_instance;
     private static $_routes;
     private $db_instance;
+    private $site_instance;
 
     /**
      * Design pattern Singleton
@@ -32,6 +34,7 @@ class App{
         \Core\Autoloader::register();
         self::initRoutes();
         self::getUrl(); //For test, delete this
+        Session::getInstance();
     }
 
     /**
@@ -72,5 +75,21 @@ class App{
     public function getModel($name){
         $class_name = 'App\\Model\\'.ucfirst($name). 'Model';
         return new $class_name($this->getDb());
+    }
+
+    /**
+     * Design pattern FACTORY
+     * Config du site
+     */
+    public function getConfigSite(){
+        if( is_null($this->site_instance)){
+            $this->site_instance = [
+                "siteName" =>"DWJ04",
+                "siteUrl" =>"http://localhost/dwj04/",
+                "siteEmail" =>"manipovoredev@gmail.com",
+                "siteAuthor" =>"Jean Forteroche",
+            ];
+        }
+        return $this->site_instance;
     }
 }

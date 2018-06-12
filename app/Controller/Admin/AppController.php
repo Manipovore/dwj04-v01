@@ -1,8 +1,10 @@
 <?php
 
 namespace App\Controller\Admin;
-use \App;
+use App;
 use Core\Auth\DBAuth;
+use Core\HTTP\Url;
+use Core\Session\Session;
 
 class AppController extends App\Controller\AppController {
 
@@ -17,9 +19,9 @@ class AppController extends App\Controller\AppController {
 		$app = App\App::getInstance();
 		$auth = new DBAuth($app->getDb());
 		if($auth->userRole() != "admin" && $auth->userRole() != "author"){
-			$this->forbidden();
+			Session::getInstance()->setFlash('danger', 'Accés interdit !');
+			Url::redirect("home");
 		}
-
 		$this->loadModel('Post');
 		$this->loadModel('Category');
 	}

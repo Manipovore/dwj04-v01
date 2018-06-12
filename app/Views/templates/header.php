@@ -8,7 +8,7 @@
     <link rel="icon" href="<?= App\app::getUrl(); ?>/public/images/favicon.ico">
     <!-- Bootstrap core CSS -->
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet">
-    <link href="<?= App\app::getUrl(); ?>/public/css/style.css" rel="stylesheet">
+    <link href="<?= Core\HTTP\Url::getUrl(); ?>/public/css/style.css" rel="stylesheet">
     <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
 </head>
 

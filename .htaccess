@@ -4,6 +4,13 @@ Options +FollowSymlinks
 # Activation du mod rewrite d'Apache
 RewriteEngine On
 
+# Set REQUEST_SCHEME (standard environment variable in Apache 2.4)
+RewriteCond %{HTTPS} off
+RewriteRule .* - [E=REQUEST_SCHEME:http]
+
+RewriteCond %{HTTPS} on
+RewriteRule .* - [E=REQUEST_SCHEME:https]
+
 # si le fichier n'existe pas
 RewriteCond %{REQUEST_FILENAME} !-f
 

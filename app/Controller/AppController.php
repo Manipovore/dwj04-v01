@@ -8,15 +8,18 @@ use Core\Session\Session;
 class AppController extends Controller {
 
     /**
-     * @var \DateTime
-     */
+	 * @var \DateTime
+	 */
+	protected $date;
     protected $template = "default";
     protected $viewPath;
 
     public function __construct() {
+        $date = new \DateTime();
+		$this->date = $date->format('Y-m-d H:i:s');
         $this->viewPath = ROOT . 'app/Views/';
-        Session::getinstance();
-        var_dump(Session::getinstance()->read("auth"));
+        Session::getInstance();
+        
     }
 
     protected function noResult($result){

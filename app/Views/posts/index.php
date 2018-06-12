@@ -1,30 +1,21 @@
 <div class="row">
     <div class="col-sm-8">
-        <div id="list_post" class="row">
-           <p>Les articles: </p>
+        <p>Les articles: </p>
+        <hr>
+        <div class="card-column">
             <?php foreach ($posts as $post) : ?>
-
-                <div class="col-sm-6">
-                    <div class="card">
-                        <div class="card-body">
-                            <h5 class="card-title"><a href="<?= $post->category_slug .'/'. $post->slug .'/'. $post->id ?>"><?= $post->title; ?></a></h5>
-                            <p> <em><?= $post->category_title; ?> / page: <?= $post->page; ?></em> </p>
-                            <p class="card-text"><?= substr($post->content,0 , 250); ?></p>
-                        </div>
+                <div class="card border-dark bg-dark">
+                    <div class="card-body bg-dark">
+                        <h5 class="card-header bg-dark border-white"><a class="text-warning" href="<?= html_entity_decode($post->category_slug .'/'. $post->slug .'/'. $post->id); ?>"><?= html_entity_decode($post->title); ?></a></h5>
+                        <p class="card-text text-white"><?= html_entity_decode(substr($post->content,0 , 250)); ?> ...</p>
+                        <div class="card-footer bg-dark border-white"><small class="text-muted"><?= html_entity_decode($post->category_title); ?> / page: <?= html_entity_decode($post->page); ?></small></div>
                     </div>
                 </div>
-
             <?php endforeach; ?>
         </div>
     </div>
 
     <div class="col-sm-4">
-        <div class="list-group">
-            <a href="<?= './categories' ?>" class="list-group-item list-group-item-action list-group-item-dark">Les Chapitres: </a>
-            <a href="<?= './chapitre1' ?>" class="list-group-item list-group-item-action"> chapitre 1</a>
-            <a href="<?= './chapitre2' ?>" class="list-group-item list-group-item-action"> chapitre 2</a>
-            <a href="<?= './chapitre3' ?>" class="list-group-item list-group-item-action"> chapitre 3</a>
-            <a href="<?= './chapitre4' ?>" class="list-group-item list-group-item-action"> chapitre 4</a>
-        </div>
+        <?php require("app/Views/templates/categories.php"); ?>
     </div>
 </div>

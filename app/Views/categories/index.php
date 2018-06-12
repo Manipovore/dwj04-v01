@@ -1,14 +1,12 @@
 <div class="row">
     <div class="col-sm-8">
         <h2>Toutes les Chapitres</h2>
-        <div id="list_post" class="row">
+        <div class="card-desk">
             <?php foreach ($categories as $category) : ?>
-
-                <div class="col-sm-6">
-                    <div class="card">
-                        <div class="card-body">
-                            <h5 class="card-title"><a href="<?= $category->category_slug ?>"><?= $category->category_title; ?></a></h5>
-                        </div>
+                <div class="card bg-dark">
+                    <div class="card-body">
+                        <h5 class="card-title"><a class="text-info"href="<?= html_entity_decode($category->category_slug); ?>"><?= html_entity_decode($category->category_title); ?></a></h5>
+                        <p class="card-text text-white"><?= html_entity_decode($category->category_description); ?></p>
                     </div>
                 </div>
 
