@@ -1,5 +1,15 @@
 <h4>Gérer les articles</h4>
 <hr>
+
+<?php $session = Core\Session\Session::getInstance(); ?>
+<?php if($session->hasFlashes()) : ?>
+    <?php foreach($session->getFlashes() as $type => $message): ?>
+        <div class="alert alert-<?= $type; ?>">
+            <?= $message; ?>
+        </div>
+    <?php endforeach; ?>
+<?php endif; ?>
+
 <p>
     <a href="../admin/posts/add/" class="btn btn-warning"> Ajouter un article </a>
 </p>

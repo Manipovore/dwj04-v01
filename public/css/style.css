@@ -85,6 +85,10 @@ button{
 .card{
     margin-bottom: 20px;
 }
+
+.card-body p {
+    color: white;
+}
 /*****************FOOTER*******************************/
 footer{
     background: #343a40;

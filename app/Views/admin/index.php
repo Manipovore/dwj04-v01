@@ -44,7 +44,7 @@
             <img class="card-img-top" src="<?= Core\HTTP\Url::getUrl() . '/public/images/backend/comments.jpg' ?>" alt="Card image cap">
             <div class="card-body text-primary">
                 <h5 class="card-title">Commentaires</h5>
-                <a href="<?= Core\HTTP\Url::getUrl() . '/admin' ?>" class="btn btn-dark">Gestion des commentaires</a>
+                <a href="<?= Core\HTTP\Url::getUrl() . '/admin/comments' ?>" class="btn btn-dark">Gestion des commentaires</a>
             </div>
         </div>
     </div>

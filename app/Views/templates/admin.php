@@ -53,7 +53,7 @@
                 <a class="nav-link" id="v-pills-post-tab" data-toggle="pill" href="<?= Core\HTTP\Url::getUrl() . '/admin/posts';?>" role="tab" aria-controls="v-pills-post" aria-selected="true">Articles</a>
                 <a class="nav-link" id="v-pills-category-tab" data-toggle="pill" href="<?= Core\HTTP\Url::getUrl() . '/admin/categories';?>" role="tab" aria-controls="v-pills-category" aria-selected="false">Catégories</a>
                 <a class="nav-link" id="v-pills-user-tab" data-toggle="pill" href="<?= Core\HTTP\Url::getUrl() . '/admin/users';?>" role="tab" aria-controls="v-pills-user" aria-selected="false">Utilisateurs</a>
-                <a class="nav-link" id="v-pills-com-tab" data-toggle="pill" href="<?= Core\HTTP\Url::getUrl() . '/admin';?>" role="tab" aria-controls="v-pills-com" aria-selected="false">Commentaires</a>
+                <a class="nav-link" id="v-pills-com-tab" data-toggle="pill" href="<?= Core\HTTP\Url::getUrl() . '/admin/comments';?>" role="tab" aria-controls="v-pills-com" aria-selected="false">Commentaires</a>
             </div>
         </div>
         <div class="col-md-9">

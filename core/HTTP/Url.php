@@ -57,7 +57,7 @@ class Url {
 
 	/**
 	 * GETTER
-	 * @return string 
+	 * @return string
 	 */
 	public static function getUrl(){
 		if( is_null(self::$url) ){
@@ -67,6 +67,31 @@ class Url {
 			self::$url = "$http$host$uri";
 		}
 		return self::$url;
+	}
+
+	/**
+	 * Recupère les paramètres numérique d'une url
+	 * @return int
+	 */
+	public static function getId(){
+		$params = $_SERVER["QUERY_STRING"];
+		$params = trim($params, '/');
+		$path = preg_replace('#[^0-9]#', '$1', $params); //expression regulière pour recup id ||| post/:id devient post/([^/]+)
+		return $path;
+	}
+
+
+	public static function getParams($arg, $limit){
+		$path = self::getId();
+		$result = intval( $path +$arg );
+		if($result <= 1){
+			return 1;
+		}
+		if($result == $limit){
+			var_dump($path);
+			return intval($path);
+		}
+		return $result;
 	}
 
 	/**

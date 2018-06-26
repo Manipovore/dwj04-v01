@@ -1,7 +1,6 @@
 <?php
 
 namespace App\Controller\Admin;
-use App\App;
 use Core\HTML\BootstrapForm;
 use Core\Session\Session;
 use Core\Str\FormatStr;
@@ -16,9 +15,27 @@ class PostsController extends AppController{
     }
 
     public function index(){
+        $this->updatePage();
         $posts = $this->Post->last();
         $categories = $this->Category->all();
         $this->render('admin.posts.index', compact('posts', 'categories'));
+    }
+
+    /*
+     * Methode qui permet le suivi cohérent entre les pages et supprime un interval irrationnel (1,2,3,4,5,6,7, ...)
+     */
+    private function updatePage(){
+        $posts = $this->Post->old();
+        $i = 1;
+        foreach( $posts as $post ){
+            if(intval($post->page) != intval($i) ){
+                $this->Post->update($post->id,[
+                    'page' => intval($i)
+                ]);
+            }
+           $i++;
+        }
+
     }
 
     public function add(){

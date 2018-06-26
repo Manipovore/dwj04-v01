@@ -32,3 +32,12 @@
 .card-img-top{
     height: 175px;
 }
+
+#btnAction{
+    display: flex;
+}
+
+#btnAction a,
+#btnAction form{
+    margin: 5px;
+}

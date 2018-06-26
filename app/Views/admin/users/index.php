@@ -1,5 +1,15 @@
 <h4>Gérer les Utilisateurs</h4>
 <hr>
+
+<?php $session = Core\Session\Session::getInstance(); ?>
+<?php if($session->hasFlashes()) : ?>
+	<?php foreach($session->getFlashes() as $type => $message): ?>
+		<div class="alert alert-<?= $type; ?>">
+			<?= $message; ?>
+		</div>
+	<?php endforeach; ?>
+<?php endif; ?>
+
 <p>
 	<a href="../admin/users/add/" class="btn btn-warning"> Ajouter un utilisateur</a>
 </p>

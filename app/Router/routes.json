@@ -5,6 +5,8 @@
     "/register": { "path": "/register", "callable": "users.register", "name": "register" },
     "/account": { "path": "/account", "callable": "users.account", "name": "account" },
     "/confirm": { "path": "/confirm/:id/:token", "callable": "users.confirm", "name": "confirm" },
+    "/report": { "path": "/report/:id/:slugCategory/:slug/:id", "callable": "comments.reporting", "name": "reporting" },
+
 
     "/admin": { "path": "/admin", "callable": "admin.app.index", "name": "admin" },
     "/admin/categories": { "path": "/admin/categories", "callable": "admin.categories.index", "name": "admin" },
@@ -19,10 +21,13 @@
     "/admin/users/add": { "path": "/admin/users/add", "callable": "admin.users.add", "name": "admin" },
     "/admin/users/edit/:id": { "path": "/admin/users/edit/:id", "callable": "admin.users.edit", "name": "admin" },
 
+    "/admin/comments": { "path": "/admin/comments", "callable": "admin.comments.index", "name": "admin" },
+    "/admin/comments/:id/show/:post_id": { "path": "/admin/comments/:id/show/:post_id", "callable": "admin.comments.show", "name": "admin" },
+    "/admin/comments/:id/approved": { "path": "/admin/comments/:id/approved", "callable": "admin.comments.approved", "name": "admin" },
 
     "/": { "path": "/", "callable": "posts.index", "name": "home" },
     "/home": { "path": "/home", "callable": "posts.index", "name": "home" },
-    "/posts": { "path": "/posts", "callable": "posts.index", "name": "home" },
+    "/posts": { "path": "/posts/:page", "callable": "posts.allPosts", "name": "home" },
     "/:slugCategory/:slug/:id": { "path": "/:slugCategory/:slug/:id", "callable": "posts.show", "name": "post" },
     "/categories/": { "path": "/categories/", "callable": "categories.index", "name": "categories" },
     "/:slug/": { "path": "/:slug/", "callable": "categories.category", "name": "category" }
@@ -43,6 +48,8 @@
     "/admin/users/add": { "path": "/admin/users/add", "callable": "admin.users.add", "name": "admin" },
     "/admin/users/edit/:id": { "path": "/admin/users/edit/:id", "callable": "admin.users.edit", "name": "admin" },
     "/admin/users/delete/:id": { "path": "/admin/users/delete/:id", "callable": "admin.users.delete", "name": "admin" },
+
+    "/admin/comments/delete/:id": { "path": "/admin/comments/delete/:id", "callable": "admin.comments.delete", "name": "admin" },
 
     "/:slugCategory/:slug/:id": { "path": "/:slugCategory/:slug/:id", "callable": "posts.show", "name": "comment" }
   }
