@@ -28,12 +28,7 @@ class App{
      * Init APP
      */
     public static function load(){
-        require ROOT . 'app/Autoloader.php';
-        Autoloader::register();
-        require ROOT . 'core/Autoloader.php';
-        \Core\Autoloader::register();
         self::initRoutes();
-        self::getUrl(); //For test, delete this
         Session::getInstance();
     }
 
@@ -51,11 +46,6 @@ class App{
         $router->init(self::$_routes);
     }
 
-    public static function getUrl(){
-        $url = "http://" . $_SERVER['HTTP_HOST'] . rtrim(dirname($_SERVER['PHP_SELF']), '/\\');
-        return $url;
-    }
-
     /**
      * Design pattern FACTORY
      * Connexion database
@@ -63,7 +53,13 @@ class App{
      */
     public function getDb(){
         if( is_null($this->db_instance)){
-            $this->db_instance = new MysqlDatabase("blog", "root", "", "localhost");
+            if( MODE === 'DEV'){
+                $this->db_instance = new MysqlDatabase("blog", "root", "", "localhost");
+            }elseif( MODE === 'PROD'){
+                var_dump("app / getDB() / rentrez les informations de connection à la BDD");
+                exit();
+                $this->db_instance = new MysqlDatabase("blog", "root", "", "localhost");
+            }
         }
         return $this->db_instance;
     }
@@ -83,12 +79,21 @@ class App{
      */
     public function getConfigSite(){
         if( is_null($this->site_instance)){
-            $this->site_instance = [
-                "siteName" =>"DWJ04",
-                "siteUrl" =>"http://localhost/dwj04/",
-                "siteEmail" =>"manipovoredev@gmail.com",
-                "siteAuthor" =>"Jean Forteroche",
-            ];
+            if( MODE === 'DEV'){
+                $this->site_instance = [
+                    "siteName" =>"DWJ04",
+                    "siteUrl" =>"http://localhost/dwj04",
+                    "siteEmail" =>"manipovoredev@gmail.com",
+                    "siteAuthor" =>"Jean Forteroche",
+                ];
+            }elseif( MODE === 'PROD' ){
+                $this->site_instance = [
+                    "siteName" =>"DWJ04",
+                    "siteUrl" =>"http://dwj04.benjamin-oliveira.fr",
+                    "siteEmail" =>"manipovoredev@gmail.com",
+                    "siteAuthor" =>"Jean Forteroche",
+                ];
+            }
         }
         return $this->site_instance;
     }

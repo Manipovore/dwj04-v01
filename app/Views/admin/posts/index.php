@@ -18,6 +18,7 @@
     <tr>
         <td>Page</td>
         <td>Titre</td>
+        <td>Catégorie</td>
         <td>Actions</td>
     </tr>
     </thead>
@@ -26,9 +27,10 @@
         <tr>
             <td><?= $post->page; ?></td>
             <td><?= $post->title; ?></td>
+            <td><?= $post->category_title; ?></td>
             <td>
                 <a href="../admin/posts/edit/<?= $post->id; ?>" class="btn btn-primary">Editer</a>
-                <form action="../admin/posts/delete/<?= $post->id; ?>" method="post" style="display: inline;">
+                <form action="../admin/posts/delete/<?= $post->id; ?>" method="post" onsubmit='return confirm("Vous confirmez la suppression ?")' style="display: inline;">
                     <input type="hidden" name="id" value="<?= $post->id; ?>">
                     <button type="submit" class="btn btn-danger" href="../admin/posts/delete/<?= $post->id; ?>">Supprimer</button>
                 </form>

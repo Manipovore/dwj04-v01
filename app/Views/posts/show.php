@@ -1,5 +1,5 @@
 <div class="row">
-    <div class="col-sm-8">
+    <div class="col-md-8">
         <div id="list_post">
             <h2><?= html_entity_decode($post->title); ?></h2>
             <p> <em><?= html_entity_decode($post->category_title); ?> / page: <?= html_entity_decode($post->page); ?></em> </p>
@@ -18,7 +18,7 @@
         </nav>
     </div>
 
-    <div class="col-sm-4">
+    <div class="col-md-4">
         <?php require("app/Views/templates/categories.php"); ?>
     </div>
 </div>

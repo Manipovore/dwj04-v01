@@ -1,5 +1,5 @@
 <div class="row">
-    <div class="col-sm-8">
+    <div class="col-md-8">
         <h2>Toutes les Chapitres</h2>
         <div class="card-desk">
             <?php foreach ($categories as $category) : ?>

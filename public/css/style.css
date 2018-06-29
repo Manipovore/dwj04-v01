@@ -120,3 +120,11 @@ footer li a:hover{
     transition: 1s;
     text-decoration: none;
 }
+
+
+
+@media all and (max-width: 640px) {
+    #site-title a{
+        color: #4e4e4e;;;
+    }
+}

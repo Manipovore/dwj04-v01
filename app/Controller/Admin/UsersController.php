@@ -53,6 +53,10 @@ class UsersController extends AppController{
 		$this->render('admin.users.edit', compact('user', 'form'));
 	}
 
+	/**
+	 * @param $id
+	 * Axe d'amélioration token csrf
+	 */
 	public function delete($id){
 		if(!empty($_POST)){
 			$this->User->delete(intval($id));

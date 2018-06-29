@@ -7,6 +7,13 @@
 namespace Core\Str;
 use Normalizer;
 
+/**
+ * Class FormatStr
+ * @package Core\Str
+ *
+ * Création d'un slug pour enregistrement bdd
+ * utile pour les url propre
+ */
 class FormatStr {
 
     /**

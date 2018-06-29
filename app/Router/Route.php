@@ -63,11 +63,11 @@ class Route {
 		if($params['0'] === 'admin'){
 			$nameCtrl = $params[1];
 			$actionCtrl = $params[2];
-			$controller = PATH_ADMIN . $nameCtrl . "Controller";
+			$controller = PATH_ADMIN . ucfirst($nameCtrl) . "Controller";
 		}else{
 			$nameCtrl = $params[0];
 			$actionCtrl = $params[1];
-			$controller = PATH_PUBLIC . $nameCtrl . "Controller";
+			$controller = PATH_PUBLIC . ucfirst($nameCtrl) . "Controller";
 		}
 		$controller = new $controller();
 		return call_user_func_array([$controller, $actionCtrl], $this->matches);

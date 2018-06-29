@@ -33,7 +33,7 @@
                     <td>
                         <a href="../admin/comments/<?= $comment->id; ?>/show/<?= $comment->post_id; ?>" class="btn btn-primary">Voir</a>
                         <a href="../admin/comments/<?= $comment->id; ?>/approved" class="btn btn-warning">Approuver</a>
-                        <form action="../admin/comments/delete/<?= $comment->id; ?>" method="post" style="display: inline;">
+                        <form action="../admin/comments/delete/<?= $comment->id; ?>" method="post" onsubmit='return confirm("Vous confirmez la suppression ?")' style="display: inline;">
                             <input type="hidden" name="id" value="<?= $comment->id; ?>">
                             <button type="submit" class="btn btn-danger" href="../admin/comments/delete/<?= $comment->id; ?>">Supprimer</button>
                         </form>
@@ -71,7 +71,7 @@
                     <td>
                         <a href="../admin/comments/<?= $comment->id; ?>/show/<?= $comment->post_id; ?>" class="btn btn-primary">Voir</a>
                         <a href="../admin/comments/<?= $comment->id; ?>/approved" class="btn btn-warning">Approuver</a>
-                        <form action="../admin/comments/delete/<?= $comment->id; ?>" method="post" style="display: inline;">
+                        <form action="../admin/comments/delete/<?= $comment->id; ?>" method="post" onsubmit='return confirm("Vous confirmez la suppression ?")' style="display: inline;">
                             <input type="hidden" name="id" value="<?= $comment->id; ?>">
                             <button type="submit" class="btn btn-danger" href="../admin/comments/delete/<?= $comment->id; ?>">Supprimer</button>
                         </form>
@@ -105,7 +105,7 @@
             <td><em><?= substr($comment->content,0, 50); ?> [...]</em></td>
             <td id="btnAction">
                 <a href="../admin/comments/<?= $comment->id; ?>/show/<?= $comment->post_id; ?>" class="btn btn-primary">Voir</a>
-                <form action="../admin/comments/delete/<?= $comment->id; ?>" method="post" style="display: inline;">
+                <form action="../admin/comments/delete/<?= $comment->id; ?>" method="post" onsubmit='return confirm("Vous confirmez la suppression ?")' style="display: inline;">
                     <input type="hidden" name="id" value="<?= $comment->id; ?>">
                     <button type="submit" class="btn btn-danger" href="../admin/comments/delete/<?= $comment->id; ?>">Supprimer</button>
                 </form>

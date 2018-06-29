@@ -16,5 +16,9 @@
     <?= $form->input('email', 'Email'); ?>
     <?= $form->input('password', 'Mot de passe', ['type' => 'password']); ?>
     <?= $form->input('password_confirm', 'Confirmer le mot de passe', ['type' => 'password']); ?>
+    <div class="g-recaptcha" data-sitekey="6LeuuEUUAAAAAK1xLrSBTMz889czAzZg1EXKTD7N"></div>
+    <hr>
     <?= $form->submit(); ?>
 </form>
+
+

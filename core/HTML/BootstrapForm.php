@@ -58,7 +58,7 @@ class BootstrapForm extends Form{
 	 */
 	public function submit()
 	{
-		return $this->surround ('<button type="submit" class="btn btn-primary"> Envoyer </button>');
+		return $this->surround ('<button type="submit" class="btn btn-primary" name="submit"> Envoyer </button>');
 	}
 
 }

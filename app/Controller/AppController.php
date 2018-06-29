@@ -17,7 +17,7 @@ class AppController extends Controller {
     public function __construct() {
         $date = new \DateTime();
 		$this->date = $date->format('Y-m-d H:i:s');
-        $this->viewPath = ROOT . 'app/Views/';
+        $this->viewPath = ROOT . 'app'.DS.'Views'.DS;
         Session::getInstance();
         
     }

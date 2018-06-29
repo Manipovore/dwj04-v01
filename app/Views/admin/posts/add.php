@@ -1,5 +1,5 @@
 
-<form method="post">
+<form method="post" class="jumbotron">
     <?= $form->input('title', 'Titre de l\'article'); ?>
     <?= $form->select('category_id', 'Catégorie', $categories); ?>
     <?= $form->input('content', 'Contenu', ['type' => 'textarea']); ?>

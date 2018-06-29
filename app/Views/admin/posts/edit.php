@@ -1,15 +1,5 @@
-<?php
-$chaine = '<p>chaine de caractère</p>';
-$html_decode = html_entity_decode($chaine);
-var_dump($html_decode);
-var_dump(htmlentities($html_decode));
-?>
-
-
-
 <div class="row">
-    <?= $html_decode;?>
-    <div class="col-md-8">
+    <div class="col-md-8 jumbotron">
         <form method="post">
             <?= $form->input('title', 'Titre de l\'article'); ?>
             <?= $form->select('category_id', 'Catégorie', $categories); ?>

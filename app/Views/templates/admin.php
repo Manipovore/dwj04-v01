@@ -21,7 +21,7 @@
         <?php if( isset($_SESSION['auth']) ) :?>
             <ul class="navbar-nav mr-auto mt-2 mt-lg-0" style="width:50%; display: flex; justify-content: flex-end;">
                 <li class="nav-item">
-                    <a class="navbar-brand" href="<?= App\app::getUrl(); ?>/logout"> <i class="fas fa-sign-out-alt"></i> Se déconnecter</a>
+                    <a class="navbar-brand" href="<?= Core\HTTP\Url::getUrl() ?>/logout"> <i class="fas fa-sign-out-alt"></i> Se déconnecter</a>
                 </li>
             </ul>
         <?php endif; ?>
@@ -29,16 +29,11 @@
 </nav>
 <nav id="nav-primary" class="navbar navbar-expand-lg navbar-light bg-dark">
     <div class="container">
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
-            <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-                <li class="nav-item active">
-                    <a class="nav-link" href="<?= App\app::getUrl(); ?>/home"> Vers le site Utilisateur -><span class="sr-only">(current)</span></a>
-                </li>
-            </ul>
-        </div>
+        <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+            <li class="nav-item active">
+                <a class="nav-link" href="<?= Core\HTTP\Url::getUrl() ?>/home"> Vers le site Utilisateur -><span class="sr-only">(current)</span></a>
+            </li>
+        </ul>
     </div>
 </nav>
 

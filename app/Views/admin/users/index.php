@@ -32,7 +32,7 @@
 			<td><?= $user->confirmed_at; ?></td>
 			<td>
 				<a href="../admin/users/edit/<?= $user->id; ?>" class="btn btn-primary">Editer</a>
-				<form action="../admin/users/delete/<?= $user->id; ?>" method="post" style="display: inline;">
+				<form action="../admin/users/delete/<?= $user->id; ?>" method="post" onsubmit='return confirm("Vous confirmez la suppression ?")' style="display: inline;">
 					<input type="hidden" name="id" value="<?= $user->id; ?>">
 					<button type="submit" class="btn btn-danger" href="../admin/users/delete/<?= $user->id; ?>">Supprimer</button>
 				</form>

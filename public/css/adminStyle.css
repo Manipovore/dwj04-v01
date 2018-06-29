@@ -41,3 +41,11 @@
 #btnAction form{
     margin: 5px;
 }
+
+.ck-blurred,
+.ck-editor__editable,
+.ck-rounded-corners,
+.ck-editor__editable_inline{
+    min-height: 200px !important;
+    margin-bottom: 40px;
+}

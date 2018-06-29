@@ -28,7 +28,7 @@
             <td><?= $category->category_title; ?></td>
             <td>
                 <a href="../admin/categories/edit/<?= $category->id; ?>" class="btn btn-primary">Editer</a>
-                <form action="../admin/categories/delete/<?= $category->id; ?>" method="post" style="display: inline;">
+                <form action="../admin/categories/delete/<?= $category->id; ?>" method="post" onsubmit='return confirm("Vous confirmez la suppression ?")' style="display: inline;">
                     <input type="hidden" name="id" value="<?= $category->id; ?>">
                     <button type="submit" class="btn btn-danger" href="admin/categories/delete/<?= $category->id; ?>">Supprimer</button>
                 </form>

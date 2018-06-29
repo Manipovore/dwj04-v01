@@ -1,7 +1,7 @@
 
 
 <div class="row">
-    <div class="col-sm-8">
+    <div class="col-md-8">
         <hr>
         <div class="title_comment">
             <h4>Commentaires</h4>
@@ -51,7 +51,9 @@
                     </div>
                 </div>
                 <hr>
-                <em><a href="../../report/<?= $comment->id; ?>/<?= $slugCategory . '/' . $slug . '/' . $id ?>">Signaler ce commentaire</a></em>
+                <?php if($session->read("auth")->role != "admin"):?>
+                    <em><a href="../../report/<?= $comment->id; ?>/<?= $slugCategory . '/' . $slug . '/' . $id ?>">Signaler ce commentaire</a></em>
+                <?php endif; ?>
             </div>
             <hr>
         <?php endforeach; ?>

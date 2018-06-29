@@ -52,25 +52,46 @@ var Pagination = {
         $cloneAfter = null;
         $position = this.$id;
 
-        $.each( $that, function($index, $value){
-            if($that.length > 8 && $index > 1 && $index < $end - 1){
-                if($index < (1* $position + 4) && $index > $position - 4 && $index != $position ){
-                    if($position > 2 && $cloneBefore == null ){
-                        $cloneBefore = '<li class="page-item disabled"><a class="page-link" href="#">...</a></li>';
-                        $($value).before($cloneBefore);
+        //if rx 922
+        if(screen.width <= 978){
+            $.each( $that, function($index, $value){
+                if($that.length > 2 && $index > 1 && $index < $end - 1){
+                    if($index < (1* $position + 1) && $index > $position - 1 && $index != $position ){
+                        if($position > 2 && $cloneBefore == null ){
+                            $cloneBefore = '<li class="page-item disabled"><a class="page-link" href="#">...</a></li>';
+                            $($value).before($cloneBefore);
+                        }
+                        if($position < $end - 1 && $cloneAfter == null && $index == (1*$position + 1) ){
+                            $cloneAfter = '<li class="page-item disabled"><a class="page-link" href="#">...</a></li>';
+                            $($value).after($cloneAfter);
+                        }
+                        return;
                     }
-                    if($position < $end - 2 && $cloneAfter == null && $index == (1*$position + 3) ){
-                        $cloneAfter = '<li class="page-item disabled"><a class="page-link" href="#">...</a></li>';
-                        $($value).after($cloneAfter);
+                    if($index != $position){
+                        $value.getElementsByTagName('a')[0].style.display = "none";
                     }
-                    return;
                 }
-                if($index != $position){
-                    $value.getElementsByTagName('a')[0].style.display = "none";
+            });
+        }else if(screen.width >= 978){
+            $.each( $that, function($index, $value){
+                if($that.length > 8 && $index > 1 && $index < $end - 1){
+                    if($index < (1* $position + 4) && $index > $position - 4 && $index != $position ){
+                        if($position > 2 && $cloneBefore == null ){
+                            $cloneBefore = '<li class="page-item disabled"><a class="page-link" href="#">...</a></li>';
+                            $($value).before($cloneBefore);
+                        }
+                        if($position < $end - 2 && $cloneAfter == null && $index == (1*$position + 3) ){
+                            $cloneAfter = '<li class="page-item disabled"><a class="page-link" href="#">...</a></li>';
+                            $($value).after($cloneAfter);
+                        }
+                        return;
+                    }
+                    if($index != $position){
+                        $value.getElementsByTagName('a')[0].style.display = "none";
+                    }
                 }
-            }
-
-        });
+            });
+        }
     }
 };
 

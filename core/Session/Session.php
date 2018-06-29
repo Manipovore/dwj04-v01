@@ -2,7 +2,13 @@
 
 namespace Core\Session;
 
-
+/**
+ * Class Session
+ * @package Core\Session
+ *
+ * Manipulation de $_SESSION[]
+ * Message flash ...
+ */
 class Session {
 
     static $instance;

@@ -2,6 +2,7 @@
     "name": "manipovore/dwj04",
     "description": "blog php mysql",
     "require": {
-        "ezyang/htmlpurifier": "^4.10"
+        "ezyang/htmlpurifier": "^4.10",
+        "google/recaptcha": "~1.1"
     }
 }

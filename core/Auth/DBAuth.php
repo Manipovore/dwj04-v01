@@ -8,6 +8,12 @@ use Core\Database\Database;
 use Core\HTML\Mail;
 use Core\Session\Session;
 
+/**
+ * Class DBAuth
+ * @package Core\Auth
+ *
+ * Authentification sur l'enregistrement en BDD, la confirmation (mail), et la connexion
+ */
 class DBAuth {
 
 	private $db;
@@ -73,7 +79,6 @@ class DBAuth {
 		$user = $this->db->prepare("SELECT * FROM users WHERE id = ?", [$user_id], null, true);
 		if($user && $user->confirm_token == $token){
 			$this->db->prepare("UPDATE users SET confirm_token = NULL, confirmed_at = NOW() WHERE id = ?", [$user_id], null, true);
-			Session::getInstance()->write('auth', $user);
 			return true;
 		}
 		return false;

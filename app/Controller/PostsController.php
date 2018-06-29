@@ -39,7 +39,6 @@ class PostsController extends AppController{
         //10 correspond aux nombre de posts par page
         //nbr de page
         $nbrPages = ceil($nbrPosts / 10);
-        var_dump($nbrPages);
         return intval($nbrPages);
     }
 
@@ -74,12 +73,14 @@ class PostsController extends AppController{
 
     public function comments($post,$slugCategory, $slug, $id){
         $comments = $this->Comment->lastComments($post->id);
+        $session = Session::getInstance();
         if(!empty($_POST)){
             $result = $this->Comment->create([
                 'content' => strip_tags($_POST['content']),
                 'post_id' => strip_tags($post->id),
                 'date' => strip_tags($this->date),
-                'username' => strip_tags(Session::getInstance()->read('auth')->username)
+                'username' => strip_tags(Session::getInstance()->read('auth')->username),
+                'approved' => $session->read("auth")->role == "admin" ? 1 : null
             ]);
             if($result){
                 Session::getInstance()->setFlash('success', 'Votre commentaire à bien été posté !');

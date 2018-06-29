@@ -2,7 +2,12 @@
 
 namespace Core\HTTP;
 
-
+/**
+ * Class Url
+ * @package Core\HTTP
+ *
+ * Gère les Urls, traitement spécifique, redirection ...
+ */
 class Url {
 
 	/**
@@ -103,6 +108,12 @@ class Url {
 		exit;
 	}
 
+	/**
+	 * @param $getPage
+	 * @return string
+	 *
+	 * Non utilisé pour le projet
+	 */
 	public static function breadcrumb($getPage){
 		$filtre = strip_tags($getPage);
 		$tab = explode('/', $filtre);

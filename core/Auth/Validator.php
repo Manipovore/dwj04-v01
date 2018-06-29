@@ -2,7 +2,12 @@
 
 namespace Core\Auth;
 
-
+/**
+ * Class Validator
+ * @package Core\Auth
+ *
+ * Valide les données d'un formulaire
+ */
 class Validator{
 
     private $data;

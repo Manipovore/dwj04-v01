@@ -48,6 +48,7 @@ class Router {
 				$this->routes[$mth][] = $route;
 			}
 		}
+
 		$this->run();
 	}
 
