@@ -8,7 +8,7 @@ Le système de routing se trouve dans le dossier app/Router :
 * Router.php
     * Init des routes - Array.
 * Route.php
-    * Traitement spécifique sur une route. Matching avec url avec callback.
+    * Traitement spécifique sur une route. Matching avec url - callback.
 * RouterException.php
     * Héritage de la classe "Exception", personnalisation.
 * routes.json
@@ -20,7 +20,7 @@ Le système de routing se trouve dans le dossier app/Router :
 
 ### Model
 
-La connexion à la base de donnée est initiée par la classe MysqlDatabase, enfant de Database, dans le core/Database.
+La connexion à la base de données est initiée par la classe MysqlDatabase, enfant de Database, dans le core/Database.
 
 ![Router](https://github.com/Manipovore/dwj04-v01/blob/master/public/images/markdown/mvc-1.png)
 
